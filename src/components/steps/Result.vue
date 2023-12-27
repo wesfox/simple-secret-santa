@@ -12,6 +12,7 @@ const props = defineProps({
 <template>
   <p class="bold large">🎁 Offre un cadeau à 🎁</p>
   <p class="bold large reveal">{{ props.user }}</p>
+  <p class="bold large">Le budget max est 20€</p>
 </template>
 
 <style scoped>
