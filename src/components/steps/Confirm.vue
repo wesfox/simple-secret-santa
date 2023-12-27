@@ -25,20 +25,20 @@ function handleDismiss(event: Event): void {
 </script>
 
 <template>
-  <p class="bold large">Hi {{ props.user }}!</p>
+  <p class="bold large">Coucou {{ props.user }}!</p>
   <form action="#">
     <fieldset>
       <input
         class="large"
         name="submit"
         type="submit"
-        value="🎁 Who's my santa?"
+        value="🎁 Qui est mon santa?"
         @click='handleConfirm'
       />
       <input
         class="large inverted"
         name="submit"
-        type="submit"
+        type="Envoyer"
         value="&#8678; Go back!"
         @click='handleDismiss'
       />

@@ -1,66 +1,66 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Draw } from '../../draws'
+import { ref } from "vue";
+import { Draw } from "../../draws";
 
 const props = defineProps({
   draws: {
     type: Array as () => Draw[],
-    required: true
+    required: true,
   },
-})
+});
 
-const emit = defineEmits(["user"])
-
+const emit = defineEmits(["user"]);
 
 function handleCodeChange(event: KeyboardEvent): void {
-  const target = event.target as HTMLInputElement
-  const inputs = target.parentElement?.
-    querySelectorAll<HTMLInputElement>("input") ?? []
+  const target = event.target as HTMLInputElement;
+  const inputs =
+    target.parentElement?.querySelectorAll<HTMLInputElement>("input") ?? [];
 
-  const code = Array.from(inputs).map(i => i.value).join("")
+  const code = Array.from(inputs)
+    .map((i) => i.value)
+    .join("");
 
-  let match = props.draws.
-    find(d => code === d.code)
+  let match = props.draws.find((d) => code === d.code);
 
   if (match) {
-    emit("user", match.from, match.to)
+    emit("user", match.from, match.to);
   }
 }
 
 function handleCodeKeyup(event: KeyboardEvent): void {
-  event.preventDefault()
+  event.preventDefault();
 
-  const target = event.target as HTMLInputElement
-  const value = parseInt(event.key)
+  const target = event.target as HTMLInputElement;
+  const value = parseInt(event.key);
 
-  let future: HTMLInputElement|null
+  let future: HTMLInputElement | null;
 
   switch (true) {
-  case event.key === "Backspace":
-    target.value = ""
-    future = target.previousElementSibling as HTMLInputElement
-    break
+    case event.key === "Backspace":
+      target.value = "";
+      future = target.previousElementSibling as HTMLInputElement;
+      break;
 
-  case ! isNaN(value):
-    target.value = value.toString()
-    future = target.nextElementSibling as HTMLInputElement
-    break
+    case !isNaN(value):
+      target.value = value.toString();
+      future = target.nextElementSibling as HTMLInputElement;
+      break;
 
-  default:
-    future = target
+    default:
+      future = target;
   }
 
-  future?.focus()
+  future?.focus();
 }
 
 function handleCodeFocus(event: FocusEvent): void {
-  const target = event.target as HTMLInputElement
-  target.value = ""
+  const target = event.target as HTMLInputElement;
+  target.value = "";
 }
 </script>
 
 <template>
-  <p class="bold large">What's your code?</p>
+  <p class="bold large">Quel est ton code ?</p>
   <form action="#">
     <fieldset>
       <input
@@ -71,11 +71,11 @@ function handleCodeFocus(event: FocusEvent): void {
         pattern="[0-9]*"
         required
         type="text"
-        v-for='i in 6'
-        :key='i'
-        @keydown='handleCodeKeyup'
-        @focus='handleCodeFocus'
-        @keyup='handleCodeChange'
+        v-for="i in 6"
+        :key="i"
+        @keydown="handleCodeKeyup"
+        @focus="handleCodeFocus"
+        @keyup="handleCodeChange"
       />
     </fieldset>
   </form>
@@ -87,6 +87,6 @@ input {
   min-width: 7.5vw;
   width: 10vw;
   margin: 1%;
-  padding: .5vw;
+  padding: 0.5vw;
 }
 </style>
