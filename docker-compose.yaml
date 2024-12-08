@@ -1,0 +1,18 @@
+services:
+  frontend:
+    image: secret-santa/front
+    ports:
+      - "7001:80"
+    build:
+      context: .
+      dockerfile: ./DockerfileApp
+
+  backend:
+    image: secret-santa/api
+    ports:
+      - "7002:3000"
+    volumes:
+      - ./pairs.json:/app/pairs.json
+    build:
+      context: .
+      dockerfile: ./DockerfileAPI

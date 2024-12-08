@@ -1,0 +1,17 @@
+from node:22 as builder
+
+copy ./package*.json ./
+
+run npm install
+
+copy ./ ./
+
+run npm run build
+
+from caddy
+
+copy --from=builder ./dist /srv
+copy ./pairs.json /srv/
+
+expose 80
+cmd [ "caddy", "file-server" ]

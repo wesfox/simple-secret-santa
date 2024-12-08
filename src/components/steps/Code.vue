@@ -61,27 +61,20 @@ function handleCodeFocus(event: FocusEvent): void {
 
 <template>
   <p class="bold large">Quel est ton code ?</p>
+  <p class="md">Le code est peut être dans les spams !</p>
   <form action="#">
     <fieldset>
-      <input
-        class="huge bold"
-        maxlength="1"
-        minlength="1"
-        name="code"
-        pattern="[0-9]*"
-        required
-        type="text"
-        v-for="i in 6"
-        :key="i"
-        @keydown="handleCodeKeyup"
-        @focus="handleCodeFocus"
-        @keyup="handleCodeChange"
-      />
+      <input class="huge bold" maxlength="1" minlength="1" name="code" pattern="[0-9]*" required type="text"
+        v-for="i in 6" :key="i" @keydown="handleCodeKeyup" @focus="handleCodeFocus" @keyup="handleCodeChange"
+        @past="handlePastEvent" />
     </fieldset>
   </form>
 </template>
 
 <style scoped>
+.md {
+  font-size: 20px;
+}
 input {
   max-width: 1cm;
   min-width: 7.5vw;

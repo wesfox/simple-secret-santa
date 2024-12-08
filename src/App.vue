@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import Steps from "./components/Steps.vue"
 </script>
 
 <template>
-  <Steps />
+  <div class="global-wrapper">
+    <RouterView />
+  </div>
 </template>
 
 <style>
@@ -36,11 +37,17 @@ input[type=submit]:focus {
     transform: translateY(.1rem) .3s;
 }
 
+.global-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 40px;
+  height: 100%;
+}
 section {
-  position: absolute;
   text-align: center;
-  top: 50vh;
   width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .bold {

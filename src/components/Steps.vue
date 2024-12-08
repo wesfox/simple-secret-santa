@@ -12,6 +12,7 @@ const userTo = ref("")
 const confirmed = ref(false)
 
 const draws = ref<Draw[]>([]);
+getDraws().then(_draws => draws.value = _draws);
 window.addEventListener("DOMContentLoaded", async () => {
     draws.value = await getDraws()
 })

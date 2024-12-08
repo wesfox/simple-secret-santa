@@ -4,8 +4,10 @@ node_modules
 
 
 # local env files
+api/.env
 .env.local
 .env.*.local
+secreat-santa-venv
 
 # Log files
 npm-debug.log*

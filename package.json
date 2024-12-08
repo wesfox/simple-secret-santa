@@ -5,21 +5,23 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "draw": "set -ex && $(which pip3 || which pip) install --user -r scripts/requirements.txt && $(which python3 || which python) scripts/draw.py > pairs.json"
+    "draw": "set -ex && $(which pip3 || which pip) install -r scripts/requirements.txt && $(which python3 || which python) scripts/draw.py > pairs.json",
+    "send-notif": "npx ts-node scripts/send-email.ts"
   },
   "dependencies": {
     "three": "^0.145.0",
-    "vue": "^3.2.38"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@types/node": "^16.11.56",
+    "@types/node": "^22.10.1",
     "@types/three": "^0.144.0",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "@vitejs/plugin-vue-jsx": "^2.0.1",
-    "@vue/tsconfig": "^0.1.3",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
+    "@vue/tsconfig": "^0.7.0",
     "npm-run-all": "^4.1.5",
-    "typescript": "~4.7.4",
-    "vite": "^3.0.9",
-    "vue-tsc": "^0.40.7"
+    "typescript": "~5.5.4",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.1.10"
   }
 }

@@ -19,3 +19,9 @@ export async function getDraws(): Promise<Draw[]> {
 
     return draws
 }
+
+export async function getPeople(): Promise<string[]> {
+  const response = await fetch("pairs.json");
+  let draws = (await response.json()) as Draw[];
+  return [...new Set(draws.map((draw) => draw.from))];
+}
