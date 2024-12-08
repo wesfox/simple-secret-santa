@@ -65,8 +65,7 @@ function handleCodeFocus(event: FocusEvent): void {
   <form action="#">
     <fieldset>
       <input class="huge bold" maxlength="1" minlength="1" name="code" pattern="[0-9]*" required type="text"
-        v-for="i in 6" :key="i" @keydown="handleCodeKeyup" @focus="handleCodeFocus" @keyup="handleCodeChange"
-        @past="handlePastEvent" />
+        v-for="i in 6" :key="i" @keydown="handleCodeKeyup" @focus="handleCodeFocus" @keyup="handleCodeChange" />
     </fieldset>
   </form>
 </template>
