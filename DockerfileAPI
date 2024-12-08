@@ -4,4 +4,5 @@ COPY package.json /app
 RUN npm install
 COPY ./api /app
 expose 3000
+# must have pairs.json on /app/pairs.json
 CMD ["npm","start"]

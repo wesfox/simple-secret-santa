@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: ./DockerfileApp
+    volumes:
+      - ./pairs.json:/srv/pairs.json
 
   backend:
     image: secret-santa/api

@@ -11,7 +11,7 @@ run npm run build
 from caddy
 
 copy --from=builder ./dist /srv
-copy ./pairs.json /srv/
+# must have pairs.json on /srv/pairs.json
 
 expose 80
 cmd [ "caddy", "file-server" ]
